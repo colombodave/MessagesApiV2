@@ -1,4 +1,4 @@
-﻿const uri = 'api/MessagesItems';
+﻿const uri = 'api/Messages';
 let messages = [];
 
 function getItems() {
@@ -42,7 +42,7 @@ function deleteItem(id) {
 function displayEditForm(id) {
     const item = messages.find(item => item.id === id);
 
-    document.getElementById('edit-message').value = item.message;
+    document.getElementById('edit-message').value = item.text;
     document.getElementById('edit-id').value = item.id;
     document.getElementById('editForm').style.display = 'block';
 }
@@ -100,7 +100,7 @@ function _displayItems(data) {
         let tr = tBody.insertRow();
 
         let td1 = tr.insertCell(0);
-        let textNode = document.createTextNode(item.message);
+        let textNode = document.createTextNode(item.text);
         td1.appendChild(textNode);
 
         let td2 = tr.insertCell(1);
